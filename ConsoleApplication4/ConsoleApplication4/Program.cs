@@ -96,11 +96,11 @@ namespace ConsoleApplication4
                 
         }
 
-       public void addStudent()
+       public void addStudent(string en)
         {
-            Console.WriteLine("Please enter student ID:");
-            enrollment = Console.ReadLine();
-           Console.WriteLine("Please enter Name");
+            
+            enrollment = en;
+            Console.WriteLine("Please enter Name");
             name = Console.ReadLine();
             Console.WriteLine("Please enter Semester");
             semester = Console.ReadLine();
@@ -131,11 +131,6 @@ namespace ConsoleApplication4
                                  
     class Program
     {
-        void read()
-        {
-
-        }
-        //string path = "C://Users/Ali/Desktop/data.txt";
         static void Main(string[] args)
         {
             int temp;
@@ -182,7 +177,18 @@ namespace ConsoleApplication4
                 {
                     case 1:
                         {
-                            wr.addStudent();
+                            string en;
+                            Console.WriteLine("Please enter student ID:");
+                            en = Console.ReadLine();
+                            for (int i = 0; i < students;i++)
+                            {
+                                if (en == obj[i].enrollmentFunction)
+                                {
+                                    Console.WriteLine("ID already exists, choose another");
+                                    goto case 1;
+                                }
+                            }
+                            wr.addStudent(en);
                             Console.ReadKey();
                             break;
                         }
