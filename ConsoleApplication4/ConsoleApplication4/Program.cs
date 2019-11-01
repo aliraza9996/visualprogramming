@@ -100,7 +100,7 @@ namespace ConsoleApplication4
         {
             Console.WriteLine("Please enter student ID:");
             enrollment = Console.ReadLine();
-            Console.WriteLine("Please enter Name");
+           Console.WriteLine("Please enter Name");
             name = Console.ReadLine();
             Console.WriteLine("Please enter Semester");
             semester = Console.ReadLine();
@@ -323,9 +323,9 @@ namespace ConsoleApplication4
                             {
                                 for (i = 0; i < students; i++)
                                 {
-                                    for (j = 0; j < students; j++)
+                                    for (j = 0; j < students-1; j++)
                                     {
-                                        if ((float)Convert.ToDouble(obj[j].cgpaFuntion) > (float)Convert.ToDouble(obj[j + 1].cgpaFuntion))
+                                        if ((float)Convert.ToDouble(obj[j].cgpaFuntion) < (float)Convert.ToDouble(obj[j + 1].cgpaFuntion))
                                         {
                                             student temperory = new student();
                                             temperory = obj[j];
@@ -334,9 +334,10 @@ namespace ConsoleApplication4
                                         }
                                     }
                                 }
-                                for (int t = 0; t < 2; t++)
+                                Console.WriteLine("Enrollment\tName\tCGPA");
+                                for (int t = 0; t < 3; t++)
                                 {
-                                    Console.WriteLine(obj[t].enrollmentFunction + obj[t].nameFunction + obj[t].cgpaFuntion);
+                                    Console.WriteLine(obj[t].enrollmentFunction + "\t" + obj[t].nameFunction + "\t" + obj[t].cgpaFuntion);
                                 }
                             }
                             break;
